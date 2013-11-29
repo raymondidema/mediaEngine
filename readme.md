@@ -1,4 +1,4 @@
-##mediaEnginge
+##mediaEngine
 
 Media engine is a collection of dropzone js and other component.
 
