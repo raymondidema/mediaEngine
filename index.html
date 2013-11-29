@@ -1,11 +1,91 @@
 <html>
 <head>
 	<title>Media Engine Example</title>
+	
+	<!-- required if you use bootstrap -->
 	<link rel="stylesheet" type="text/css" href="components/vendor/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="components/vendor/font-awesome/css/font-awesome.min.css">
+	<!-- ./required if you use bootstrap -->
+
+	<!-- Add a little animation on the mediaEngine -->
+	<link rel="stylesheet" type="text/css" href="components/vendor/animate.css/animate.min.css">
+	<!-- ./Animate.css -->
+
+	<link rel="stylesheet" type="text/css" href="components/vendor/pace/themes/pace-theme-flash.css">
+
+	<!-- Media engine css -->
+	<link rel="stylesheet" type="text/css" href="js/plugins/mediaEngine/mediaEngine.css">
+	<!-- ./ Media engine css -->
+
 </head>
 <body>
+<section class="container">
+	<section class="row">
+		<h2>Media engine</h2>
+
+		<a href="#mediaengine" id="upload-media" class="btn btn-default"> <i class="fa fa-cloud-upload"></i> upload media</a>
+	</section>
+</section>
+
+<section id="mediaengine">
+	<article class="mediascreen">
+		<div class="media-container">
+			<div class="media-nav-left">
+				<div class="align-content">
+					<ul class="link-library pull-in">
+						<li class="active"><a href="#insert-media" class="link"><i class="fa fa-upload"></i> Insert media</a></li>
+						<li><a href="#browse-media" class="link"><i class="fa fa-folder"></i> Browse media</a></li>
+						<li><a href="#insert-url" class="link"><i class="fa fa-terminal"></i> Insert from URL</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="media-content">
+				<div class="align-content media-tabs active" id="insert-media">
+					<div id="dropzone">
+						
+						<div class="dz-default dz-message clearfix">
+							<div class="upload-placeholder">
+							<h3>Drop files anywhere to upload</h3>
+
+							<a href="#" class="btn btn-default dz-btn">Select files</a>
+							<p>Maximum upload file size: 32MB.</p>
+							</div>
+							<div class="preview-container clearfix">
+								
+							</div>
+						</div>
+
+						<!-- <form action="/file-upload" class="dropzone">
+							<div class="fallback">
+								<input name="file" type="file" multiple />
+							</div>
+						</form> -->
+					</div>
+				</div>
+				<div class="align-content media-tabs" id="browse-media"></div>
+				<div class="align-content media-tabs" id="insert-url"></div>
+			</div>
+			<div class="media-nav-right">
+				<div class="align-content">
+					<div class="pace pace-progress"></div>
+					Aanpassen komt hier.
+				</div>
+				
+			</div>
+		</div>
+		<header class="media-header">
+			<h3>Insert media</h3>
+		</header>
+		<footer class="media-footer clearfix">
+			<button class="btn btn-sm btn-danger pull-right">insert media</button>
+		</footer>
+	</article>
+</section>
 
 <script src="components/vendor/jquery/jquery.min.js"></script>
 <script src="components/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="components/vendor/dropzone/downloads/dropzone.min.js"></script>
+<script src="components/vendor/pace/pace.min.js"></script>
+<script src="js/plugins/mediaEngine/mediaEngine.js"></script>
 </body>
 </html>
