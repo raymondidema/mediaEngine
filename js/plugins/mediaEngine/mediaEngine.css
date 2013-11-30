@@ -166,6 +166,7 @@
 	-moz-transition:all .25s ease-in-out;
 	-webkit-transition:all .25s ease-in-out;
 }
+
 .upload-placeholder
 {
 	text-align: center;
@@ -199,10 +200,39 @@
 	height: 120px;
 	border:1px solid #4e4747;
 	background: #565050;
-	margin-left: 1em;
-	margin-bottom: 1em;
+	margin-left: 2em;
+	margin-bottom: 2em;
 	position: relative;
 	border-radius: 3px;
+}
+.attachment
+{
+	position: relative;
+	width: 120px;
+	height: 120px;
+	margin-left: -1px;
+	margin-top: -1px;
+}
+.attachment.selected
+{
+	box-shadow: 0 0 0 1px #fff,0 0 0 5px #1e8cbe;
+}
+.selected:after
+{
+	content: "selected";
+	text-indent: -9999em;
+	position: absolute;
+	display: block;
+	right: -6px;
+	top: -6px;
+	width: 18px;
+	height: 18px;
+	background: url(images/check.png) center no-repeat #1e8cbe;
+	box-shadow: 0 0 0 1px #fff,0 0 0 3px #1e8cbe;
+}
+.dz-preview:hover .selected:after
+{
+	background: url(images/uncheck.png) center no-repeat #1e8cbe;
 }
 
 .dz-error
@@ -215,10 +245,81 @@
 {
 	display: none;
 }
- .media-tabs.active
- {
- 	display: block;
- }
+.media-tabs.active
+{
+	display: block;
+}
+#mePreview
+{
+	width: 100%;
+	text-align: center;
+	background: #fff;
+	margin: 1em 1em 1em 1em;
+}
+
+#mePreview img
+{
+	margin:2em;
+	max-width: 100%;
+	height: 300px;
+}
+
+#attachment
+{
+	font-size: 12px;
+	margin-right: 18px;
+}
+.overflow
+{
+	overflow-x:hidden;
+	height: 100%;
+}
+#attachment .title
+{
+	text-transform: uppercase;
+	font-weight: 700;
+	color: #777;
+	padding-top: 18px;
+}
+#attachment > .body > .meThumbnail
+{
+
+}
+
+#attachment > .body > .meFilename
+{
+	font-weight: 700;
+	color: #000;
+}
+
+#attachment > .body > .meDate
+{
+	color: #999
+}
+#attachment > .body > .meFiledimensions
+{
+	color: #999;
+}
+#attachment > .body > .meSave a
+{
+	color: #21759b;
+}
+#attachment > .body > .meDelete a
+{
+	color: #bc0b0b;
+}
+#attachment > .body > hr
+{
+	margin: 10px 0;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid rgba(255,255,255,0.5);
+}
+
+#attachment .body label
+{
+	font-weight: 400;
+	color: #777;
+}
 
 .loader
 {
