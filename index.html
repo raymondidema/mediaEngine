@@ -24,10 +24,16 @@
 		<h2>Media engine</h2>
 
 		<a href="#mediaengine" id="upload-media" class="btn btn-default"> <i class="fa fa-cloud-upload"></i> upload media</a>
+		<br />
+		<br />
+		<div class="form-group">
+			<label>CKeditor</label>
+			<textarea class="ckeditor form-control" id="addMediaEngine" rows="15"></textarea>
+		</div>
 	</section>
 </section>
 
-<section id="mediaengine">
+<section id="mediaengine" class="mediaengine">
 	<article class="mediascreen">
 		<div class="media-container">
 			<div class="media-nav-left">
@@ -166,8 +172,20 @@
 
 <script src="components/vendor/jquery/jquery.min.js"></script>
 <script src="components/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="components/vendor/ckeditor/ckeditor.js"></script>
+<script src="components/vendor/ckeditor/adapters/jquery.js"></script>
 <script src="components/vendor/dropzone/downloads/dropzone.min.js"></script>
 <script src="components/vendor/pace/pace.min.js"></script>
 <script src="js/plugins/mediaEngine/mediaEngine.js"></script>
+<script>
+$( function () {
+	// Init media engine
+	MediaEngine('image/*','/file/post');
+	$('body').on('click', 'h2', function(){
+		CKEDITOR.instances['addMediaEngine'].insertHtml('<div class="slideshow"><div class="slide"><img src="http://media.nu.nl/m/m1mx5fbak0l7_wd640.jpg"/></div><div class="slide"><img src="http://media.nu.nl/m/m1mx5fbak0l7_wd640.jpg"/></div><div class="slide"><img src="http://media.nu.nl/m/m1mx5fbak0l7_wd640.jpg"/></div><div class="slide"><img src="http://media.nu.nl/m/m1mx5fbak0l7_wd640.jpg"/></div><div class="slide"><img src="http://media.nu.nl/m/m1mx5fbak0l7_wd640.jpg"/></div></div>');	
+	});
+	
+});
+</script>
 </body>
 </html>

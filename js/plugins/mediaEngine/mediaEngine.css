@@ -9,6 +9,7 @@
 	bottom: 0;
 	z-index: 150;
 	color: #444;
+	display: none;
 }
 
 #mediaengine > .mediascreen

@@ -1,12 +1,33 @@
-$(document).ready( function () {
+function MediaEngine(meFiles, meLocation) {
+	// This shouldn't be needed after install
+	var myDate = (new Date).getTime();
+	console.log(myDate);
+
+	// Init CKeditor
+	$('.ckeditor').ckeditor({
+		contentsCss : '/js/plugins/mediaEngine/ckeditor_style.css?v='+myDate,
+		format_tags : 'p;div;h1;h2;h3;pre',
+		extraAllowedContent : '*[id](*)'
+	});
 	// Variables
-	var meFiles = 'image/*';
-	var meLocation = '/file/post';
-	var DropTemplate = '<div class="dz-preview dz-file-preview"><a href="#"><img data-dz-thumbnail /></a><div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div></div>';
+	// var DropTemplate = '<div class="dz-preview dz-file-preview"><a href="#"><img data-dz-thumbnail /></a><div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div></div>';
 	var DropTemplate = '<div class="dz-preview dz-file-preview"><div class="attachment"><div class="loader"></div><div class="dz-error-message"><span data-dz-errormessage></span></div></div></div>';
 	// Initialize dropzone handler
 	$('body').on('click', 'a.dz-btn', function (e) {
 		e.preventDefault();
+	});
+
+	$('body').on('click', '#upload-media', function (e) {
+		e.preventDefault();
+		$('#mediaengine').fadeIn();
+	});
+
+	$('body').on('click', '#mediaengine', function (e) {
+		if($(e.target).hasClass('mediaengine')){ $('#mediaengine').fadeOut(); }
+	});
+
+	$(document).keyup(function(e) {
+		if (e.keyCode == 27) { $('#mediaengine').fadeOut(); }   // esc
 	});
 
 	// Media selecter
@@ -53,4 +74,5 @@ $(document).ready( function () {
 		thumbnailWidth: 120,
 		thumbnailHeight: 120
 	});
-});
+
+};

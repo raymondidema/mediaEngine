@@ -1,0 +1,66 @@
+body
+{
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 14px;
+	line-height: 1.428571429;
+	color: #333;
+	background-color: #fff;
+}
+
+.slideshow
+{
+	width: 640px;
+	height: 150px;
+	background: #eee;
+	border:3px dashed #ddd;
+	cursor: pointer;
+	position: relative;
+}
+.slideshow:after
+{
+	font-size: 22px;
+	content: "Slideshow";
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 200px;
+	height: 22px;
+	margin-top: -11px;
+	margin-left: -100px;
+	color: #ccc;
+	text-align: center;
+
+}
+.slideshow *
+{
+	display: none;
+}
+
+.gallery
+{
+	width: 640px;
+	height: 150px;
+	background: #eee;
+	border:3px dashed #ddd;
+	cursor: pointer;
+	position: relative;
+}
+.gallery:after
+{
+	font-size: 22px;
+	content: "Gallery";
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 200px;
+	height: 22px;
+	margin-top: -11px;
+	margin-left: -100px;
+	color: #ccc;
+	text-align: center;
+
+}
+.gallery *
+{
+	display: none;
+}
