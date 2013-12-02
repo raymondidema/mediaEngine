@@ -6,7 +6,6 @@
     "dropzone": "~3.7.3",
     "font-awesome": "~4.0.3",
     "animate.css": "~3.0.0",
-    "pace": "~0.4.15",
-    "ckeditor": "*"
+    "pace": "~0.4.15"
   }
 }

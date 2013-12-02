@@ -30,6 +30,7 @@
 			<label>CKeditor</label>
 			<textarea class="ckeditor form-control" id="addMediaEngine" rows="15"></textarea>
 		</div>
+		<p>Images are from <a href="https://www.flickr.com/photos/cmichel67/sets/72157630521889748/">Flickr</a>.</p>
 	</section>
 </section>
 
@@ -68,7 +69,31 @@
 						</form> -->
 					</div>
 				</div>
-				<div class="align-content media-tabs" id="browse-media"></div>
+				<div class="align-content media-tabs" id="browse-media">
+					<div class="overflow m-t-p">
+					<div class="dz-preview dz-file-preview">
+						<div class="attachment">
+							<img src="images/image1.jpg">
+						</div>
+					</div>
+					<div class="dz-preview dz-file-preview">
+						<div class="attachment">
+							<img src="images/image2.jpg">
+						</div>
+					</div>
+					<div class="dz-preview dz-file-preview">
+						<div class="attachment">
+							<img src="images/image3.jpg">
+						</div>
+					</div>
+					<div class="dz-preview dz-file-preview">
+						<div class="attachment">
+							<img src="images/image4.jpg">
+						</div>
+					</div>
+					</div>
+				</div>
+				</div>
 				<div class="align-content media-tabs" id="insert-url">
 					<div class="overflow">
 						<label for="meUrl" class="control-label">URL</label>
@@ -165,7 +190,7 @@
 			<h3>Insert media</h3>
 		</header>
 		<footer class="media-footer clearfix">
-			<button class="btn btn-sm btn-danger pull-right">insert media</button>
+			<button class="btn btn-sm btn-danger pull-right" id="insert-into-ck">insert media</button>
 		</footer>
 	</article>
 </section>
@@ -173,17 +198,27 @@
 <script src="components/vendor/jquery/jquery.min.js"></script>
 <script src="components/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="js/plugins/ckeditor/ckeditor.js?v=1sdadfa"></script>
-<script src="components/vendor/ckeditor/adapters/jquery.js"></script>
+<script src="js/plugins/ckeditor/adapters/jquery.js"></script>
 <script src="components/vendor/dropzone/downloads/dropzone.min.js"></script>
 <script src="components/vendor/pace/pace.min.js"></script>
 <script src="js/plugins/mediaEngine/mediaEngine.js?v=1sdadfa"></script>
 <script>
 $( function () {
 	// Init media engine
+	// 
+	// This should be a config get function
+	var imageoptions = $.parseJSON('{ "Thumbnail" : "150 x 150", "Medium" : "199 x 100", "large" : "605 x 480" , "Full Size" : "1300 x 1300" }');
+	// 
 	MediaEngine('image/*','/file/post');
 	$('body').on('click', 'h2', function(){
 		// CKEDITOR.instances['addMediaEngine'].execCommand('simplebox');
 		CKEDITOR.instances['addMediaEngine'].insertHtml('<div class="slideshow"><div class="slide"><img src="http://media.nu.nl/m/m1mx5fbak0l7_wd640.jpg"/></div><div class="slide"><img src="http://media.nu.nl/m/m1mx5fbak0l7_wd640.jpg"/></div><div class="slide"><img src="http://media.nu.nl/m/m1mx5fbak0l7_wd640.jpg"/></div><div class="slide"><img src="http://media.nu.nl/m/m1mx5fbak0l7_wd640.jpg"/></div><div class="slide"><img src="http://media.nu.nl/m/m1mx5fbak0l7_wd640.jpg"/></div></div>');	
+	});
+
+	
+	$.each(imageoptions, function(i, item)
+	{
+		console.log('name: ' + i + ', value: ' + item);
 	});
 	
 });

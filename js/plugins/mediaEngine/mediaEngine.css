@@ -12,6 +12,12 @@
 	display: none;
 }
 
+.m-t-p
+{
+	margin-top: 20px;
+	padding-top: 10px;
+}
+
 #mediaengine > .mediascreen
 {
 	background: #EEE;
@@ -230,6 +236,14 @@
 	height: 18px;
 	background: url(images/check.png) center no-repeat #1e8cbe;
 	box-shadow: 0 0 0 1px #fff,0 0 0 3px #1e8cbe;
+}
+
+.attachment > img
+{
+	width: 100%;
+	height: 100%;
+	vertical-align: middle;
+
 }
 .dz-preview:hover .selected:after
 {

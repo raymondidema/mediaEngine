@@ -76,6 +76,27 @@ function MediaEngine(meFiles, meLocation) {
 		thumbnailHeight: 120
 	});
 
+	$('body').on('click','#insert-into-ck', function (e)
+	{
+		e.preventDefault();
+		var SelectMedia = $('#browse-media .selected img').map(function () {
+			return $(this).attr('src');
+		}).get();
+		if(SelectMedia.length >= 1)
+		{
+			$.each(SelectMedia, function(i, item)
+			{
+				CKEDITOR.instances['addMediaEngine'].insertHtml('<img src="'+ item +'" />');
+				$('#mediaengine').fadeOut();
+				$('.selected').removeClass('selected');
+			});
+		}
+		else
+		{
+			console.log('no media selected');
+		}
+	});
+
 };
 
 var Mijncontent = 'foobar';
