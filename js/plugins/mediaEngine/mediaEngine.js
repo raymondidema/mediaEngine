@@ -1,7 +1,53 @@
+function MediaAddItems(classname, total_items, previewClass, location)
+{
+	$('body').on('click',classname, function(e)
+	{
+		e.preventDefault();
+	});
+	var Template = '<div data-dz-errormessage></div>';
+	$(classname).dropzone({
+		maxFiles: total_items,
+		url: location,
+		acceptedFiles: 'image/*',
+		previewsContainer: ".product-upload",
+		previewTemplate: Template,
+		init: function() {
+			this.on("success", function(file, responseText) {
+				$(previewClass).prepend('<div class="product-images"><img src="upload/'+ responseText.filename +'" /></div>');
+				var count = $(previewClass + ' .product-images');
+				// console.log(responseText);
+				
+				
+				if(count.length == total_items)
+				{
+					$(previewClass + ' .product-images-plus').remove();
+				}
+			});
+			this.on("canceled", function(file, responseText) {
+				
+			});
+			this.on("maxfilesreached", function(file, responseText) {
+				
+			});
+			this.on("maxfilesexceeded", function(file, responseText) {
+				// still need to do some stuff here
+				
+			});
+			this.on('completemultiple', function(files, responseText)
+			{
+				console.log('====================================================================================');
+				console.log(files);
+				console.log(responseText);
+			});
+		}
+	});
+	
+}
+
 function MediaEngine(meFiles, meLocation) {
 	// This shouldn't be needed after install
 	var myDate = (new Date).getTime();
-	console.log(myDate);
+	
 
 	// Init CKeditor
 	$('.ckeditor').ckeditor({
@@ -66,6 +112,12 @@ function MediaEngine(meFiles, meLocation) {
 		init: function() {
 			this.on("success", function(file, responseText) {
 				// still need to do some stuff here
+				var newImage = document.createElement('img');
+				newImage.setAttribute('src', '/upload/' + responseText.filename);
+				file.previewTemplate.children[0].children[1].appendChild(newImage);
+				file.previewTemplate.children[0].children[0].remove();
+				console.log(file.previewTemplate.children[0].children[0]);
+				console.log(responseText);
 			});
 		},
 		url: meLocation,
@@ -79,7 +131,7 @@ function MediaEngine(meFiles, meLocation) {
 	$('body').on('click','#insert-into-ck', function (e)
 	{
 		e.preventDefault();
-		var SelectMedia = $('#browse-media .selected img').map(function () {
+		var SelectMedia = $('.selected img').map(function () {
 			return $(this).attr('src');
 		}).get();
 		if(SelectMedia.length >= 1)
@@ -93,7 +145,7 @@ function MediaEngine(meFiles, meLocation) {
 		}
 		else
 		{
-			console.log('no media selected');
+			
 		}
 	});
 

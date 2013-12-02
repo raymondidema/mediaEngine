@@ -31,6 +31,26 @@
 			<textarea class="ckeditor form-control" id="addMediaEngine" rows="15"></textarea>
 		</div>
 		<p>Images are from <a href="https://www.flickr.com/photos/cmichel67/sets/72157630521889748/">Flickr</a>.</p>
+
+		<div class="form-group">
+			<label>Headerimage</label>
+			<input type="hidden" name="headerimage">
+			<div class="header-image">
+				<a href="#" class="product-images-plus">upload header</a>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+
+		<div class="form-group">
+			<label>Product images</label>
+			
+			<div class="product-upload">
+			<!-- <div class="product-images"><input type="hidden" name="productimages[]"></div> -->
+			<div class="product-images-plus"></div>
+			<!-- <div class="product-images-plus"><input type="hidden" name="productimages[]"></div> -->
+			</div>
+			<div class="clearfix"></div>
+		</div>
 	</section>
 </section>
 
@@ -209,16 +229,12 @@ $( function () {
 	// This should be a config get function
 	var imageoptions = $.parseJSON('{ "Thumbnail" : "150 x 150", "Medium" : "199 x 100", "large" : "605 x 480" , "Full Size" : "1300 x 1300" }');
 	// 
-	MediaEngine('image/*','/file/post');
+	MediaAddItems('.header-image .product-images-plus', 1, '.header-image', '/upload.php');
+	MediaAddItems('.product-upload .product-images-plus', 3, '.product-upload', '/upload.php');
+	MediaEngine('image/*','/upload.php');
 	$('body').on('click', 'h2', function(){
 		// CKEDITOR.instances['addMediaEngine'].execCommand('simplebox');
 		CKEDITOR.instances['addMediaEngine'].insertHtml('<div class="slideshow"><div class="slide"><img src="http://media.nu.nl/m/m1mx5fbak0l7_wd640.jpg"/></div><div class="slide"><img src="http://media.nu.nl/m/m1mx5fbak0l7_wd640.jpg"/></div><div class="slide"><img src="http://media.nu.nl/m/m1mx5fbak0l7_wd640.jpg"/></div><div class="slide"><img src="http://media.nu.nl/m/m1mx5fbak0l7_wd640.jpg"/></div><div class="slide"><img src="http://media.nu.nl/m/m1mx5fbak0l7_wd640.jpg"/></div></div>');	
-	});
-
-	
-	$.each(imageoptions, function(i, item)
-	{
-		console.log('name: ' + i + ', value: ' + item);
 	});
 	
 });
