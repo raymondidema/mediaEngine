@@ -6,8 +6,9 @@ function MediaEngine(meFiles, meLocation) {
 	// Init CKeditor
 	$('.ckeditor').ckeditor({
 		contentsCss : '/js/plugins/mediaEngine/ckeditor_style.css?v='+myDate,
-		format_tags : 'p;div;h1;h2;h3;pre',
-		extraAllowedContent : '*[id](*)'
+		format_tags : 'p;h1;h2;h3;pre',
+		extraAllowedContent : '*[id](*)',
+		extraPlugins: 'mediaengine'
 	});
 	// Variables
 	// var DropTemplate = '<div class="dz-preview dz-file-preview"><a href="#"><img data-dz-thumbnail /></a><div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div></div>';
@@ -76,3 +77,41 @@ function MediaEngine(meFiles, meLocation) {
 	});
 
 };
+
+var Mijncontent = 'foobar';
+
+CKEDITOR.plugins.add( 'mediaengine', {
+    requires: 'widget',
+    init: function( editor ) {
+        editor.widgets.add( 'mediaengine', {
+
+            // button: 'Create a simple box',
+
+            template:
+                '<div class="simplebox">' +
+                    '<h2 class="simplebox-title">Title</h2>' +
+                    '<div class="simplebox-content"><p>'+Mijncontent+'</p></div>' +
+                '</div>',
+
+            editables: {
+                // title: {
+                //     selector: '.simplebox-title',
+                //     allowedContent: 'br strong em'
+                // },
+                // content: {
+                //     selector: '.simplebox-content',
+                //     allowedContent: 'p br ul ol li strong em'
+                // }
+            },
+
+            allowedContent:
+                'div(!slideshow); div(!slide); img',
+
+            requiredContent: 'div(slideshow)',
+
+            upcast: function( element ) {
+                return element.name == 'div' && element.hasClass( 'slideshow' );
+            }
+        } );
+    }
+} );
