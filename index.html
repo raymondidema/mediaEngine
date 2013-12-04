@@ -229,9 +229,9 @@ $( function () {
 	// This should be a config get function
 	var imageoptions = $.parseJSON('{ "Thumbnail" : "150 x 150", "Medium" : "199 x 100", "large" : "605 x 480" , "Full Size" : "1300 x 1300" }');
 	// 
-	MediaAddItems('.header-image .product-images-plus', 1, '.header-image', '/upload.php');
-	MediaAddItems('.product-upload .product-images-plus', 3, '.product-upload', '/upload.php');
-	MediaEngine('image/*','/upload.php');
+	MediaAddItems('.header-image .product-images-plus', 1, '.header-image', 'upload.php');
+	MediaAddItems('.product-upload .product-images-plus', 3, '.product-upload', 'upload.php');
+	MediaEngine('image/*','upload.php');
 	$('body').on('click', 'h2', function(){
 		// CKEDITOR.instances['addMediaEngine'].execCommand('simplebox');
 		CKEDITOR.instances['addMediaEngine'].insertHtml('<div class="slideshow"><div class="slide"><img src="http://media.nu.nl/m/m1mx5fbak0l7_wd640.jpg"/></div><div class="slide"><img src="http://media.nu.nl/m/m1mx5fbak0l7_wd640.jpg"/></div><div class="slide"><img src="http://media.nu.nl/m/m1mx5fbak0l7_wd640.jpg"/></div><div class="slide"><img src="http://media.nu.nl/m/m1mx5fbak0l7_wd640.jpg"/></div><div class="slide"><img src="http://media.nu.nl/m/m1mx5fbak0l7_wd640.jpg"/></div></div>');	
