@@ -51,7 +51,7 @@ function MediaEngine(meFiles, meLocation) {
 
 	// Init CKeditor
 	$('.ckeditor').ckeditor({
-		contentsCss : '/mediaEnginge/js/plugins/mediaEngine/ckeditor_style.css?v='+myDate,
+		contentsCss : 'js/plugins/mediaEngine/ckeditor_style.css?v='+myDate,
 		format_tags : 'p;h1;h2;h3;pre',
 		extraAllowedContent : '*[id](*)',
 		extraPlugins: 'mediaengine'
