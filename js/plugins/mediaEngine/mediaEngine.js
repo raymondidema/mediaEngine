@@ -15,7 +15,7 @@ function MediaAddItems(classname, total_items, previewClass, location)
 			this.on("success", function(file, responseText) {
 				$(previewClass).prepend('<div class="product-images"><img src="upload/'+ responseText.filename +'" /></div>');
 				var count = $(previewClass + ' .product-images');
-				// console.log(responseText);
+
 				
 				
 				if(count.length == total_items)
@@ -35,9 +35,9 @@ function MediaAddItems(classname, total_items, previewClass, location)
 			});
 			this.on('completemultiple', function(files, responseText)
 			{
-				console.log('====================================================================================');
-				console.log(files);
-				console.log(responseText);
+
+
+
 			});
 		}
 	});
@@ -51,7 +51,7 @@ function MediaEngine(meFiles, meLocation) {
 
 	// Init CKeditor
 	$('.ckeditor').ckeditor({
-		contentsCss : 'js/plugins/mediaEngine/ckeditor_style.css?v='+myDate,
+		contentsCss : '/mediaEnginge/js/plugins/mediaEngine/ckeditor_style.css?v='+myDate,
 		format_tags : 'p;h1;h2;h3;pre',
 		extraAllowedContent : '*[id](*)',
 		extraPlugins: 'mediaengine'
@@ -116,8 +116,8 @@ function MediaEngine(meFiles, meLocation) {
 				newImage.setAttribute('src', '/upload/' + responseText.filename);
 				file.previewTemplate.children[0].children[1].appendChild(newImage);
 				file.previewTemplate.children[0].children[0].remove();
-				console.log(file.previewTemplate.children[0].children[0]);
-				console.log(responseText);
+
+
 			});
 		},
 		url: meLocation,
